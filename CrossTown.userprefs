@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{6EE70884-0614-402F-BB42-168A00FACB5C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CrossTown/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="CrossTown/Controllers/HomeController.cs" Line="9" Column="23" />
+      <File FileName="CrossTown/Views/Home/Index.cshtml" Line="1" Column="1" />
+      <File FileName="CrossTown/Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="CrossTown/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="CrossTown/packages.config" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CrossTown PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
