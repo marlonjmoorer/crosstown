@@ -25,25 +25,52 @@ namespace CrossTown.Controllers
             //Password to use for SMTP authentication
             var Password = "zero1318";
 
-			using (MailMessage mm = new MailMessage(Username, Username))
+			var model = new EmailViewModel
 			{
-				mm.Subject = "Subject";
-				mm.Body = "I think i was about 17";
+				 
 
-				mm.IsBodyHtml = false;
-				SmtpClient smtp = new SmtpClient();
-				smtp.Host = "smtp.gmail.com";
-				smtp.EnableSsl = true;
-				NetworkCredential NetworkCred = new NetworkCredential(Username, Password);
-				//smtp.UseDefaultCredentials = true;
-				smtp.Credentials = NetworkCred;
-				smtp.Port = 587;
-				smtp.Send(mm);
+			};
 
+
+			return View(model);
+		}
+		[HttpPost]
+		public ActionResult SendMail(EmailViewModel model) {
+
+
+			if (ModelState.IsValid)
+			{
+				var Username = "marlonjmoorer@gmail.com";
+				//Password to use for SMTP authentication
+				var Password = "zero1318";
+
+				using (MailMessage mm = new MailMessage(Username, Username))
+				{
+					mm.Subject = "Subject";
+					mm.Body = "I think i was about 17";
+
+					mm.IsBodyHtml = false;
+					SmtpClient smtp = new SmtpClient();
+					smtp.Host = "smtp.gmail.com";
+					smtp.EnableSsl = true;
+					NetworkCredential NetworkCred = new NetworkCredential(Username, Password);
+					//smtp.UseDefaultCredentials = true;
+					smtp.Credentials = NetworkCred;
+					smtp.Port = 587;
+					smtp.Send(mm);
+
+				}
+
+				return RedirectToAction("index");
+			}
+			else {
+				model.section = "quote";
+				return View("Index", model);
 			}
 
 
-			return View();
+
+		
 		}
 	}
 }
