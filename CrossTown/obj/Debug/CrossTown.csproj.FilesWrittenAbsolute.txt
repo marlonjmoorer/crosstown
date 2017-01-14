@@ -10,3 +10,16 @@
 /Users/marlonmoorer/Projects/CrossTown/CrossTown/bin/System.Web.WebPages.dll
 /Users/marlonmoorer/Projects/CrossTown/CrossTown/bin/System.Web.WebPages.Razor.dll
 /Users/marlonmoorer/Projects/CrossTown/CrossTown/bin/System.Web.Mvc.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/CrossTown.dll.mdb
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/CrossTown.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/obj/Debug/CrossTown.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/obj/Debug/CrossTown.dll.mdb
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Web.Razor.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/Microsoft.Web.Infrastructure.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Web.Helpers.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Web.WebPages.Deployment.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Web.WebPages.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Web.WebPages.Razor.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Web.Mvc.dll
+/Users/marlonmoorer/RiderProjects/crosstown/CrossTown/bin/System.Configuration.dll

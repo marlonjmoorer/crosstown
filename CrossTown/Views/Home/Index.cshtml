@@ -2,21 +2,28 @@
 
 <div class="container">
 
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
-                        <img class="img-responsive img-border img-full" src="@Url.Content("~/content/images/img-1.jpg")" alt="">
-                    </div>
-                    <br><br>
-                    <h1 class="brand-name">M&M Crosstown</h1>
-                    <hr class="tagline-divider">
-                    <h2>
-                        <i> "You Call, We Haul"</i>
-                    </h2>
-                </div>
-            </div>
+  <div class="row">
+
+    <div class="box">
+          @if (TempData["SuccessMessage"] != null)
+          {
+              <div class="alert alert-success" >
+                <strong>@TempData["SuccessMessage"] </strong>
+              </div>
+          }
+      <div class="col-lg-12 text-center">
+        <div id="carousel-example-generic" class="carousel slide">
+          <img class="img-responsive img-border img-full" src="@Url.Content("~/content/images/img-1.jpg")" alt="">
         </div>
+        <br><br>
+        <h1 class="brand-name">M&M Crosstown</h1>
+        <hr class="tagline-divider">
+        <h2>
+          <i> "You Call, We Haul"</i>
+        </h2>
+      </div>
+    </div>
+  </div>
 
         <div id="services" class="row">
             <div class="box">
@@ -26,7 +33,8 @@
                         <strong>Services</strong>
                     </h1>
                     <hr>
-                    
+
+
                     <img class="img-responsive img-border img-full" src="@Url.Content("~/content/images/img-2.jpg")" alt="">
                     <hr class="visible-xs">
                     <br>
@@ -38,7 +46,7 @@
                         <li>Furniture assembly (We do house calls!)</li>
                         <li>Furniture Haul-off</li>
                     </ul>
-                    
+
 
                 </div>
             </div>
@@ -57,34 +65,45 @@
     				<div class="col-md-5">
     			
     					<h3 class="margin-bottom-40 editContent">Get a FREE Quote</h3>
-    				
-                            <form role="form" action="Home/SendMail" method="post">
+
+                          @using (Html.BeginForm("SendMail", "Home", FormMethod.Post))
+                          {
+
+
+
 
 								@Html.ValidationSummary(false, "", new { @class = "text-danger" })
 	    						<div class="form-group">
-									
-	    				    		<input type="text" class="form-control input-lg" id="name" name="name" placeholder="Your name *">
+									@Html.TextBoxFor(m=>m.name,new{ @class="form-control input-lg" ,@placeholder="Your name *"})
+
 	    				  		</div>
-	    				  	    				  	
-	    				  		<div class="form-group">
-	    				  			<input type="email" class="form-control input-lg" id="email_address" name="email_address" placeholder="Your email *">
-	    				  		</div>
-	    				  	
-	    				  		<div class="form-group">
-	    				  			<input type="phone" class="form-control input-lg" id="phone" name="phone" placeholder="Your phone number">
-	    				  		</div>
-	    				  		
-	    				  		<div class="form-group">
-	    				  			<textarea class="form-control" rows="4" id="comments" name="comments"  placeholder="Add comment..."></textarea>
-	    				  		</div>
-    				  
-    				    	
-    				  	
+
+                              <div class="form-group">
+                                @Html.TextBoxFor(m=>m.email_address,new{ @class="form-control input-lg" ,@placeholder="Email address *" , @type="email"})
+
+                              </div>
+
+                              <div class="form-group">
+                                @Html.TextBoxFor(m=>m.phone,new{ @class="form-control input-lg" ,@placeholder="Phone *" , @type="phone"})
+
+                              </div>
+
+                              <div class="form-group">
+                                @Html.TextAreaFor(m=>m.comments,new{ @class="form-control input-lg" ,@placeholder="Add comment...", @rows=4})
+
+                              </div>
+
+
+
 	    				  		<hr>
-	    				  	
+
 	    				  		<button type="submit" class="btn btn-primary btn-embossed btn-lg btn-wide">Submit</button>
-    				
-    					</form>
+
+
+
+                          }
+
+
     			
     				</div><!-- /.col-md-5 -->
     			
@@ -109,7 +128,7 @@
     				
     					<p>
     						<b class="chead"><span class="fa fa-envelope"></span> EMAIL</b><br>
-    						<a href="#" class="editContent">info@something.com</a>
+    						<a href="#" class="editContent">moorernash@aol.com</a>
     					</p>
     			
     				</div><!-- /.col-md-6 -->

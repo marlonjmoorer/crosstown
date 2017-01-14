@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using System.IO;
@@ -14,24 +14,7 @@ namespace CrossTown.Controllers
 	{
 		public ActionResult Index()
 		{
-			var mvcName = typeof(Controller).Assembly.GetName();
-			var isMono = Type.GetType("Mono.Runtime") != null;
-
-			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
-			ViewData["Runtime"] = isMono ? "Mono" : ".NET";
-
-
-		 	var Username = "marlonjmoorer@gmail.com";
-            //Password to use for SMTP authentication
-            var Password = "zero1318";
-
-			var model = new EmailViewModel
-			{
-				 
-
-			};
-
-
+		    var model = new EmailViewModel();
 			return View(model);
 		}
 		[HttpPost]
@@ -40,14 +23,16 @@ namespace CrossTown.Controllers
 
 			if (ModelState.IsValid)
 			{
-				var Username = "marlonjmoorer@gmail.com";
-				//Password to use for SMTP authentication
-				var Password = "zero1318";
+			    var Username = ConfigurationManager.AppSettings["mailAccount"];
 
-				using (MailMessage mm = new MailMessage(Username, Username))
+				//Password to use for SMTP authentication
+				var Password = ConfigurationManager.AppSettings["mailPassword"];
+
+			    using (MailMessage mm = new MailMessage(model.email_address, Username))
 				{
-					mm.Subject = "Subject";
-					mm.Body = "I think i was about 17";
+					mm.Subject = "Need Quote";
+					mm.Body = model.comments;
+				    mm.CC.Add(model.email_address);
 
 					mm.IsBodyHtml = false;
 					SmtpClient smtp = new SmtpClient();
@@ -61,7 +46,9 @@ namespace CrossTown.Controllers
 
 				}
 
-				return RedirectToAction("index");
+
+			    TempData["SuccessMessage"] = "You quote has been sent sucessfully!";
+			    return RedirectToAction("index");
 			}
 			else {
 				model.section = "quote";
